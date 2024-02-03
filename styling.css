@@ -1,0 +1,187 @@
+body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+    background-color: #2ecc71;
+    color: #333; /* Text color */
+}
+
+/* Overlay to make the background slightly transparent */
+body::before {
+  content: '';
+  display: block;
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(255, 255, 255, 0.9); /* Adjust the alpha value for transparency */
+  z-index: -1; /* Place the overlay behind other elements */
+}
+
+/* Style the form container */
+form {
+  max-width: 400px;
+  margin: 50px auto;
+  background-color: rgba(255, 255, 255, 0.8);
+  padding: 20px;
+  border-radius: 8px;
+  box-shadow: 0 0 20px rgba(0, 0, 0, 0.1);
+}
+
+/* Style form fields */
+label {
+  display: block;
+  margin-bottom: 8px;
+  color: #3498db;
+}
+
+input[type="text"],
+input[type="email"],
+input[type="password"]
+ {
+  width: 100%;
+  padding: 10px;
+  margin-bottom: 15px;
+  box-sizing: border-box;
+  transition: border-color 0.3s, box-shadow 0.3s;
+  border: 2px solid #3498db;
+  border-radius: 4px;
+}
+
+/* Style focused input field */
+input[type="text"]:focus,
+input[type="email"]:focus,
+input[type="password"]:focus,
+{
+  border-color: #2196F3;
+  box-shadow: 0 0 10px rgba(33, 150, 243, 0.5);
+}
+
+/* Style submit button */
+input[type="submit"] {
+  background-color: #3498db;
+  color: #fff;
+  padding: 10px 15px;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+  transition: background-color 0.3s;
+}
+
+/* Style successful state of submit button */
+input[type="submit"].success {
+  background-color: #2196F3;
+}
+
+input[type="submit"]:hover {
+  background-color: #2980b9;
+}
+
+/* Style the h2 element */
+h2 {
+  color: #3498db; /* Set the text color */
+  font-size: 24px; /* Set the font size */
+  font-weight: bold; /* Set the font weight */
+  margin-bottom: 10px; /* Add some space below the heading */
+  text-align: center; /* Center the text */
+  /* You can add more styles based on your design preferences */
+}
+
+/* Add a border-bottom for a decorative underline effect */
+h2::after {
+  content: "";
+  display: block;
+  width: 50px;
+  height: 3px;
+  background-color: #3498db;
+  margin: 10px auto; /* Adjust the margin to control the distance between the heading and the underline */
+}
+
+
+header {
+    background-color: #3498db; /* Blue color */
+    color: #fff;
+    padding: 20px;
+    text-align: center;
+}
+
+.dashboard-container {
+    display: flex;
+    justify-content: space-around;
+    margin: 20px;
+}
+
+.dashboard-item {
+    width: 30%;
+    color: #fff;
+    padding: 20px;
+    margin: 10px;
+    box-sizing: border-box;
+    border: 1px solid #fff; /* White color */
+    border-radius: 5px;
+    transition: transform 0.3s ease-in-out, box-shadow 0.3s ease-in-out;
+    background-size: cover;
+	background-color:#F9E79F;
+}
+
+.dashboard-item:hover {
+    transform: scale(1.05);
+    box-shadow: 0 0 10px #ffd700; /* Yellow shadow */
+}
+
+.dashboard-item.item1 {
+    background-image: url('C:\xampp\htdocs898259.jpg');
+}
+
+.dashboard-item.item2 {
+    background-image: url('C:\xampp\htdocs1613340.jpg');
+}
+
+.dashboard-item.item3 {
+    background-image: url('C:\xampp\htdocs1613537.jpg');
+}
+
+footer {
+    background-color: #3498db; /* Blue color */
+    color: #fff;
+    padding: 10px;
+    text-align: center;
+}
+nav a.ide{
+	float:right;
+}
+a .view{
+	float:right;
+}
+.styled-button {
+            display: inline-block;
+            padding: 10px 20px;
+            text-align: center;
+            text-decoration: none;
+            cursor: pointer;
+            border: 2px solid #3498db; /* Blue border color */
+            color: #3498db; /* Blue text color */
+            border-radius: 5px; /* Optional: rounded corners */
+            background-color: transparent; /* Transparent background */
+            margin-left: 182px; /* Optional: add some space to the left of the button */
+	
+        }
+
+        /* Style for the button on hover */
+        .styled-button:hover {
+            background-color: #3498db; /* Blue background color on hover */
+            color: #fff; /* White text color on hover */
+        }
+		@media only screen and (max-width: 600px) {
+    nav a {
+        float: none;
+        display: block;
+        width: 100%;
+        text-align: left;
+	box-sizing: border-box;}
+	
+	a {
+			text-decoration:none;
+			color: black;
+		}

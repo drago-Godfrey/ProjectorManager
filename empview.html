@@ -1,0 +1,134 @@
+
+<?php
+// dashboard.php
+
+session_start(); // Start or resume the session
+
+// Check if the user is logged in
+if (!isset($_SESSION["adminID"])) {
+    // Redirect to the login page if not logged in
+    header("Location: login.html");
+    exit();
+}
+
+$adminID = $_SESSION["adminID"];
+?><!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>What Page | Projector Manager</title>
+    
+<style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background: linear-gradient(135deg, #3498db, #ffffff, #f39c12); /* Blue, White, Yellow gradient */
+            color: #333; /* Text color */
+        }
+
+        header {
+            background-color: #3498db; /* Blue header */
+            color: #fff;
+            padding: 10px;
+            text-align: center;
+	    font-size:24px;
+        }
+
+        nav {
+            background-color: #f39c12; /* Yellow navigation bar */
+            overflow: hidden;
+			
+        }
+
+        nav a {
+            float:left;
+            display: block;
+            color: white;
+            text-align: center;
+            padding: 14px 16px;
+            text-decoration: none;
+        }
+
+        nav a:hover {
+            background-color: #555; /* Darker yellow on hover */
+        }
+
+        section {
+            margin-left: 0; /* No margin on the left */
+            padding: 20px;
+        }
+		a {
+			text-decoration:none;
+		}
+    </style>
+	<link rel="stylesheet" href="styling.css"/>
+</head>
+<body>
+
+    <header>
+        Projector Manager.
+    </header>
+
+    <nav>
+        <a class="ide"><?php echo $adminID;?></a>
+        <a href="dash.php">Home</a>
+        <a href="emp.html">Employee</a>
+		<a href="projectors.html">Projectors</a>
+        <a href="borrow.php">Borrow</a>
+        <a href="return.php">Return</a>
+		<a class="ide "href="logout.php">Logout</a>
+    </nav>
+
+    <section>
+	
+
+        <h2>Employees</h2>
+		<?php
+$EmployeeID = $_POST["EmployeeID"];
+$UserName = $_POST["UserName"];
+$Contact = $_POST["Contact"];
+$email = $_POST["email"];
+
+$conn = new mysqli('localhost', 'root', '', 'projector');
+if ($conn->connect_error) {
+    die('Connection Failed :' . $conn->connect_error);
+} else {
+    $stmt = $conn->prepare("insert into Users(EmployeeID,UserName,Contact,email) values(?,?,?,?)");
+    $stmt->bind_param("ssss", $EmployeeID, $UserName, $Contact, $email);
+    $stmt->execute();
+    echo "Successful.";
+}
+
+$result = $conn->query("SELECT * FROM users");
+
+// Display data in an HTML table
+if ($result->num_rows > 0) {
+    echo "<h2>Employees</h2>";
+    echo "<table border='1'>";
+    echo "<tr><th>ID</th><th>Name</th><th>Contact</th><th>Email</th></tr>";
+    while ($row = $result->fetch_assoc()) {
+        echo "<tr>";
+        echo "<td>" . $row["EmployeeID"] . "</td>";
+        echo "<td>" . $row["UserName"] . "</td>";
+        echo "<td>" . $row["Contact"] . "</td>";
+        echo "<td>" . $row["email"] . "</td>";
+        echo "</tr>";
+    }
+    echo "</table>";
+} else {
+    echo "No data available.";
+}
+
+$conn->close();
+?>
+
+
+
+    </section>
+<footer>
+        <p>&copy; 2023 DragoApps. All rights reserved.</p>
+    </footer>
+</body>
+</html>
