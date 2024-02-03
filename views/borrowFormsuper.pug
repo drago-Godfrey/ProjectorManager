@@ -1,0 +1,28 @@
+extends layout 
+
+block content
+      section
+        h2 Borrow Projector
+        form(action="borrow", method="post")
+          label(for="employee") Employee ID
+          select(id="employee", name="employee")
+            option(value="#" selected) Emp. No.
+            each employee in employees
+              option(value=employee) #{employee}
+          br
+          br
+          label(for="projector") Projector
+          select(id="projector", name="projector")
+            option(value="#" selected) Model
+            each projector in projectors
+              option(value=projector) #{projector}
+          br
+          br
+          label Comments:
+          input(type="text", name="comments")
+          br
+          br
+          input(type="submit", value="Submit")
+          input.styled-button(type="button", onclick="window.location.href='borrowviewsuper'", value="View Borrowed")
+      footer
+        p &copy; 2023 DragoApps. All rights reserved.

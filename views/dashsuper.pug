@@ -1,0 +1,29 @@
+extends layout
+
+block content
+    section
+      h2 Welcome to ProManager
+      .dashboard-container
+        .dashboard-item.item1
+          h2 Recent Activity
+          a(href="recentsuper.php" align="center") Borrow & Returns.
+        .dashboard-item.item2
+          h2 New Projectors
+            a(href="newprosuper.php" align="center") View
+
+      .dashboard-container
+        .dashboard-item.item1
+          h2 All Borrowing Records
+          a(href="borrowviewallsuper.php" align="center") View
+        .dashboard-item.item2
+          h2 Returned Projectors
+          a(href="returnviewsuper.php" align="center") View
+
+      .dashboard-container
+        .dashboard-item.item1
+          h2 Most Used Projectors
+          a(href="mostusedsuper.php" align="center") View
+
+    footer
+      p © 2023 DragoApps. All rights reserved.
+

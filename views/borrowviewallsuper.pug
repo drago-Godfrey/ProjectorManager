@@ -1,0 +1,93 @@
+doctype html
+html(lang="en")
+  head
+    meta(charset="UTF-8")
+    meta(name="viewport", content="width=device-width, initial-scale=1.0")
+    title All Time Borrowed | Projector Manager
+    link(rel="stylesheet", href="styling.css")
+    style
+      header
+        background-color: #3498db
+        color: #fff
+        padding: 10px
+        text-align: center
+        font-size: 24px
+
+      nav
+        background-color: #f39c12
+        overflow: hidden
+
+      nav a
+        float: left
+        display: block
+        color: white
+        text-align: center
+        padding: 14px 16px
+        text-decoration: none
+
+      nav a:hover
+        background-color: #555
+
+      section
+        margin-left: 0
+        padding: 20px
+
+      a
+        text-decoration: none
+
+      .tables
+        width: 80%
+        margin: 20px auto
+        border-collapse: collapse
+        border: 1px solid #ddd
+
+      .tables th, .tables td
+        padding: 10px
+        border: 1px solid #ddd
+        text-align: left
+
+      .tables th
+        background-color: #3498db
+        color: #fff
+
+      .tables tr:nth-child(even)
+        background-color: #f2f2f2
+
+  body
+    header Projector Manager.
+
+    nav
+      a(href="dashsuper.php") Home
+      a(href="empFormsuper.php") Employee
+      a(href="projectorsFormsuper.php") Projectors
+      a(href="borrowFormsuper.php") Borrow
+      a(href="returnFormsuper.php") Return
+      a(href="admins.php") Admins
+      a.ide= $adminID
+      a.ide(href="logoutsuper.php") Logout
+
+    section
+      if result && result.num_rows > 0
+        h2 All Time Borrowed
+        table.tables(border='1')
+          tr
+            th Employee RegNo.
+            th Projector
+            th Comments
+            th Date/Time of Borrow
+
+          each row in result
+            tr
+              td= row.employee_id
+              td= row.projector_model
+              td= row.comments
+              td= row.borrow_date
+
+      else
+        | No data available.
+
+      input.styled-button(type="button", onclick="window.location.href='borrowFormsuper.php'", value="Borrow Projector")
+
+  footer
+    p &copy; 2023 DragoApps. All rights reserved.
+

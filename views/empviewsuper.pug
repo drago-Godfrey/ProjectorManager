@@ -1,0 +1,41 @@
+extends layout 
+
+block content
+    section
+      if employees.length > 0
+        h2 Employees
+        table.employee-table
+          thead
+            tr
+              th Employee ID
+              th Name
+              th Contact
+              th Email
+              th Action
+          tbody
+            each employee in employees
+              tr
+                td= employee.EmployeeID
+                td= employee.UserName
+                td= employee.Contact
+                td= employee.email
+                td
+                  button.edit-btn(onclick=`editRecord(${employee.id})`) Edit
+                  button.delete-btn(onclick=`deleteRecord(${employee.id})`) Delete
+      else
+        p No data available.
+      input.styled-button(type="button", onclick="window.location.href='empFormsuper.php'", value="Register Employees")
+    footer
+      p &copy; 2023 DragoApps. All rights reserved.
+    script.
+      // Function to handle edit action
+      function editRecord(recordId) {
+          window.location.href = 'editempsuper.php?id=' + recordId;
+      }
+
+      // Function to handle delete action
+      function deleteRecord(recordId) {
+          if (confirm('Are you sure you want to delete this record?')) {
+              window.location.href = 'deleteempsuper.php?id=' + recordId;
+          }
+      }

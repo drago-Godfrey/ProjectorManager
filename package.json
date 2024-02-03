@@ -1,0 +1,26 @@
+{
+  "name": "promanager",
+  "version": "1.0.0",
+  "description": "Projector Management",
+  "main": "server.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/drago-Godfrey/Projector-Management.git"
+  },
+  "author": "drago",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/drago-Godfrey/Projector-Management/issues"
+  },
+  "homepage": "https://github.com/drago-Godfrey/Projector-Management#readme",
+  "dependencies": {
+    "body-parser": "^1.20.2",
+    "express": "^4.18.2",
+    "express-session": "^1.18.0",
+    "mysql": "^2.18.1",
+    "pug": "^3.0.2"
+  }
+}

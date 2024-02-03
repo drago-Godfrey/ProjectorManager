@@ -1,0 +1,45 @@
+extends layout 
+
+block content 
+   section
+      - if (result && result.num_rows > 0)
+        h2 Admins
+        table.tables
+          tr
+            th Name
+            th Password
+            th E-mail
+            th Employee ID
+            th Contacts
+            th Role
+            th Action
+          each row in result
+            tr
+              td= row.username
+              td= row.password
+              td= row.email
+              td= row.adminID
+              td= row.phone_number
+              td= row.role
+              td
+                button.edit-btn(onclick='editRecord(' + row.id + ')') Edit
+                button.delete-btn(onclick='deleteRecord(' + row.id + ')') Delete
+      else
+        | No data available.
+      br
+      br
+      input.styled-button(type='button', onclick="window.location.href='register_admin'", value="Register Admin")
+    footer
+        p &copy; 2023 DragoApps. All rights reserved.
+    script.
+        // Function to handle edit action
+        function editRecord(recordId) {
+            window.location.href = 'editadmin.php?id=' + recordId;
+        }
+
+        // Function to handle delete action
+        function deleteRecord(recordId) {
+            if (confirm('Are you sure you want to delete this record?')) {
+                window.location.href = 'deleteadmin.php?id=' + recordId;
+            }
+        }

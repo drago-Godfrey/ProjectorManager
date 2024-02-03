@@ -1,0 +1,36 @@
+extends layout
+
+block content
+
+  h2 Admin Registration
+    form(method="post", action=registerAdmin.php)
+      label(for="username") Name:
+      input(type="text", name="username", required)
+      br
+
+      label(for="password") Password:
+      input(type="password", name="password", required)
+      br
+
+      label(for="email") Email:
+      input(type="email", name="email", required)
+      br
+
+      label(for="employee_id") Employee ID:
+      input(type="text", name="adminID", required)
+      br
+
+      label(for="phone_number") Phone Number:
+      input(type="text", name="phone_number", required)
+      br
+
+      label(for="role") Role:
+      select(id="role", name="role")
+        option(value="#") Choose Role
+        option(value="Admin") Admin
+        option(value="Super Admin") Super Admin
+      br
+      br
+
+      input(type="submit", value="Register")
+      input.styled-button(type="button", onclick="window.location.href='viewadmin'", value="View Admins")

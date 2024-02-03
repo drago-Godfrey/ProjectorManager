@@ -1,0 +1,22 @@
+extends layout 
+
+block content
+  section
+    h2 Register Projector
+    form(action="projectorsuper", method="post", enctype="multipart/form-data")
+      label(for="model") Model:
+      input(type="text", name="Model", required)
+      br
+      label(for="condition") Condition:
+      input(type="text", name="Conditions", required)
+      br
+      label(for="serial_number") Serial Number:
+      input(type="text", name="SerialNumber", required)
+      br
+      label(for="color") Colour:
+      input(type="text", name="Colour", required)
+      br
+      input(type="submit", value="Submit")
+      input.styled-button(type="button", onclick="window.location.href='projectorviewsuper.php'", value="View Projectors")
+    footer
+      p &copy; 2023 DragoApps. All rights reserved.

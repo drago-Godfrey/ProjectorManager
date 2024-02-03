@@ -1,0 +1,21 @@
+extends layout 
+
+block content
+      section
+        h2 Returns
+        form(action="returnsuper", method="post")
+          label(for="borrower") Borrower's ID
+          select(id="borrower", name="borrow_id")
+            option(value="#" selected) Borrower's ID
+            each borrower in borrowers
+              option(value=borrower) #{borrower}
+          br
+          br
+          label Comments:
+          input(type="text", name="comments")
+          br
+          br
+          input(type="submit", value="Submit")
+          input.styled-button(type="button", onclick="window.location.href='returnviewsuper.php'", value="View Returned")
+      footer
+        p &copy; 2023 DragoApps. All rights reserved.

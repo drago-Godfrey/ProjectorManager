@@ -1,0 +1,27 @@
+extends layout 
+
+block content
+    section
+      if result && result.num_rows > 0
+        h2 Borrowed
+        table.tables(border='1')
+          tr
+            th Employee RegNo.
+            th Projector
+            th Comments
+            th Date/Time of Borrow
+
+          each row in result
+            tr
+              td= row.employee_id
+              td= row.projector_model
+              td= row.comments
+              td= row.borrow_date
+
+      else
+        | No data available.
+
+      input.styled-button(type="button", onclick="window.location.href='borrowFormsuper'", value="Borrow Projector")
+
+  footer
+    p &copy; 2023 DragoApps. All rights reserved.

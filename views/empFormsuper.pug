@@ -1,0 +1,22 @@
+extends layout 
+
+block content
+      section
+        h2 Register Employee
+        form(action="empsuper", method="post")
+          label Employee ID
+          input(type="text", name="EmployeeID", id="EmployeeID", required)
+          br
+          label Name
+          input(type="text", name="UserName", id="UserName", required)
+          br
+          label Contact
+          input(type="text", name="Contact", id="Contact", required)
+          br
+          label Email
+          input(type="email", name="email", id="email", required)
+          br
+          input(type="submit", value="Submit")
+          input.styled-button(type="button", onclick="window.location.href='empviewsuper.php'", value="View Employees")
+      footer
+        p &copy; 2023 DragoApps. All rights reserved.
